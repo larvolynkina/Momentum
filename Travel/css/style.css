@@ -4,10 +4,14 @@ html {
 
 body {
     margin: auto;
-    width: 1440px;
+    min-width: 1440px;
     scroll-behavior: smooth;
     overflow-x: hidden;
     font-family: "Aleo", serif;
+    background-image: url(../img/bg-main.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 765px;
 }
 
 .container {
@@ -60,7 +64,6 @@ figure {
 }
 
 .login {
-    display: block;
     padding: 10px 30px;
     margin: 25px 0;
     margin-left: 197px;
@@ -68,6 +71,14 @@ figure {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
         0px 2px 3px rgba(13, 96, 111, 0.16);
     border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    font-family: "Red Hat Text", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    cursor: pointer;
 }
 
 .btn:hover,
@@ -93,15 +104,6 @@ h1 {
 
 .preview {
     min-height: 675px;
-    position: relative;
-}
-
-.preview-bg {
-    position: absolute;
-    top: -122px;
-    z-index: -1;
-    width: 1440px;
-    margin: auto;
 }
 
 .preview-info {
@@ -211,7 +213,6 @@ h2 {
     margin: auto;
     width: 2040px;
     left: -570px;
-    overflow: hidden;
     margin-top: 46px;
 }
 
@@ -249,12 +250,12 @@ h2 {
 }
 
 .find-link {
-    display: block;
     position: relative;
-    width: 166px;
-    height: 32px;
-    margin: auto;
-    margin-top: 34px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 228px;
+    height: 59px;
+    margin-top: 35px;
     padding: 13.5px 31px;
     background: #0d606f;
     box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08),
@@ -267,6 +268,12 @@ h2 {
     line-height: 32px;
     color: #ffffff;
     text-align: end;
+    border: none;
+    cursor: pointer;
+}
+
+.see-link {
+    margin-top: 6px;
 }
 
 .find-link::before {
@@ -285,6 +292,8 @@ h2 {
     padding-top: 40px;
     padding-bottom: 40px;
     background-image: url(../img/stories-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .stories-item {
@@ -295,7 +304,7 @@ h2 {
 }
 
 .stories-img {
-    margin-left: 120px;
+    margin-left: 8.3%;
     margin-right: 40px;
 }
 
@@ -335,20 +344,22 @@ h2 {
     color: #ffffff;
     min-height: 60px;
     background-image: url(../img/stories-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: bottom;
 }
 
 .footer-wrapper {
     display: flex;
-    padding-top: 12px;
+    padding-top: 15px;
     align-items: center;
-    padding-right: 121px;
+    padding-right: 8.4%;
     justify-content: flex-end;
 }
 
 .footer-text {
     width: 260px;
-    padding-right: 328px;
+    padding-right: 25%;
 }
 
 .footer-links {
