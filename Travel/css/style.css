@@ -298,14 +298,20 @@ h2 {
 
 .stories-item {
     display: flex;
+    width: 1200px;
+    margin: auto;
     flex-direction: row-reverse;
     justify-content: start;
     margin-bottom: 26px;
 }
 
 .stories-img {
-    margin-left: 8.3%;
     margin-right: 40px;
+}
+
+.stories-img img {
+    filter: drop-shadow(0px 4px 4px #0d606f);
+    border-radius: 16px;
 }
 
 .stories-text h3 {
@@ -351,15 +357,16 @@ h2 {
 
 .footer-wrapper {
     display: flex;
+    width: 1440px;
+    margin: auto;
     padding-top: 15px;
     align-items: center;
-    padding-right: 8.4%;
-    justify-content: flex-end;
 }
 
 .footer-text {
     width: 260px;
-    padding-right: 25%;
+    padding-left: 41%;
+    padding-right: 23%;
 }
 
 .footer-links {
