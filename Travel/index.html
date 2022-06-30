@@ -94,43 +94,49 @@
             <section id="destinations" class="destinations">
                 <h2>POPULAR DESTINATIONS</h2>
                 <ul class="popular-list">
-                    <li class="popular-list-item">
+                    <li class="popular-list-item active">
                         <figure>
-                            <img src="img/Rectangle23.jpg" width="800" height="800" alt="Spain" />
+                            <picture>
+                                <source media="(max-width: 390px)" srcset="img/Rectangle26.jpg">
+                                <source media="(min-width: 391px)" srcset="img/Rectangle23.jpg">
+                                <img src="img/Rectangle23.jpg" alt="Spain">
+                            </picture>
                             <figcaption class="popular-caption">SPAIN</figcaption>
                         </figure>
                     </li>
                     <li class="popular-list-item">
                         <figure>
-                            <img src="img/Rectangle24.jpg" width="800" height="800" alt="Japan" />
+                            <picture>
+                                <source media="(max-width: 390px)" srcset="img/Rectangle34.jpg">
+                                <source media="(min-width: 391px)" srcset="img/Rectangle24.jpg">
+                                <img src="img/Rectangle24.jpg" alt="Japan">
+                            </picture>
                             <figcaption class="popular-caption">JAPAN</figcaption>
                         </figure>
                     </li>
                     <li class="popular-list-item">
                         <figure>
-                            <img src="img/Rectangle25.jpg" width="800" height="800" alt="USA" />
+                            <picture>
+                                <source media="(max-width: 390px)" srcset="img/Rectangle35.jpg">
+                                <source media="(min-width: 391px)" srcset="img/Rectangle25.jpg">
+                                <img src="img/Rectangle25.jpg" alt="USA">
+                            </picture>
                             <figcaption class="popular-caption">USA</figcaption>
                         </figure>
                     </li>
                 </ul>
                 <ul class="popular-links-list">
-                    <li>
-                        <popular-links-item>
-                            <a href="#"><img src="icon/Ellipse1.svg" alt="Ellipse1" /></a>
-                        </popular-links-item>
+                    <li class="popular-links-item">
+                        <a href="#"><img src="icon/Ellipse1.svg" alt="Ellipse1" /></a>
                     </li>
-                    <li>
-                        <popular-links-item>
-                            <a href="#"><img src="icon/Ellipse2.svg" alt="Ellipse1" /></a>
-                        </popular-links-item>
+                    <li class="popular-links-item">
+                        <a href="#"><img src="icon/Ellipse2.svg" alt="Ellipse1" /></a>
                     </li>
-                    <li>
-                        <popular-links-item>
-                            <a href="#"><img src="icon/Ellipse1.svg" alt="Ellipse1" /></a>
-                        </popular-links-item>
+                    <li class="popular-links-item">
+                        <a href="#"><img src="icon/Ellipse1.svg" alt="Ellipse1" /></a>
                     </li>
                 </ul>
-                <button type="button" class="find-link btn">Find More</button>
+                <button type="button" class="find-link btn find-mobile">Find More</button>
             </section>
             <section id="stories" class="stories">
                 <h2 class="stories-header">TRAVEL STORIES</h2>
