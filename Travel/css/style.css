@@ -228,6 +228,11 @@ h2 {
     margin-top: 46px;
 }
 
+.prev,
+.next {
+    display: none;
+}
+
 .popular-list-item {
     margin-right: 60px;
 }
@@ -633,7 +638,7 @@ h2 {
     .steps p {
         font-size: 10px;
         line-height: 12px;
-        margin-top: 16px;
+        margin-top: 14px;
     }
 
     .left {
@@ -780,7 +785,6 @@ h2 {
     .main-footer {
         background-image: url(../img/Rectangle28.jpg);
         min-height: 65px;
-        border-radius: 0 0 35px 35px;
     }
 
     .login {
@@ -823,7 +827,7 @@ h2 {
         width: 27px;
         height: 16px;
         cursor: pointer;
-        margin-right: 20px;
+        margin-right: 23px;
         top: -8px;
     }
 
@@ -888,13 +892,12 @@ h2 {
 
     .steps {
         margin-top: 37px;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
         padding-bottom: 0;
     }
 
     .body-wrapper {
         background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 25.1%), url(../img/bg-main-mini.jpg);
-        border-radius: 35px 35px 0 0;
         background-repeat: no-repeat;
         background-size: auto 251px;
     }
@@ -905,8 +908,9 @@ h2 {
 
     .popular-list {
         margin-top: 20px;
-        width: auto;
+        width: 300%;
         left: 0;
+        transition: all 0.5s ease;
     }
 
     .popular-list-item {
@@ -915,12 +919,11 @@ h2 {
         width: auto;
         height: 210px;
         transition: all 0.5s ease 0s;
-        display: none;
     }
 
-    .popular-list-item.active {
+    /* .popular-list-item.active {
         display: block;
-    }
+    } */
 
     .popular-list-item img {
         border-radius: 16px;
@@ -951,26 +954,51 @@ h2 {
         height: 8px;
     }
 
+    .popular-links-item {
+        opacity: 0.5;
+    }
+
+    .popular-links-item.active {
+        opacity: 1;
+    }
+
     .see-link {
         margin-top: -5px;
     }
 
-    .popular-list::before {
-        content: url("../icon/left-icon.svg");
+    .destinations {
+        position: relative;
+    }
+
+    .prev,
+    .next {
+        display: block;
+    }
+
+    .prev {
+        background: url("../icon/left-icon.svg") no-repeat;
+        width: 15px;
+        height: 27px;
+        border: none;
         position: absolute;
-        top: 50%;
-        transform: translate(26px, -50%);
+        left: 25px;
+        bottom: 50%;
+        transform: translate(0, 50%);
         cursor: pointer;
     }
 
-    .popular-list::after {
-        content: url("../icon/right-icon.svg");
+    .next {
+        background: url("../icon/right-icon.svg") no-repeat;
+        width: 15px;
+        height: 25px;
+        border: none;
         position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translate(-26px, -50%);
+        left: 90%;
+        bottom: 50%;
+        transform: translate(0, 50%);
         cursor: pointer;
     }
+
 }
 
 @media (max-width: 370px) {
