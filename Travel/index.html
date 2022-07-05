@@ -20,187 +20,238 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-wrapper container">
-            <a href="#"><img src="icon/logo.svg" width="216" height="31" alt="Logo" class="logo" /></a>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li class="nav-list-item">
-                        <a href="#">How It Works</a>
+    <div class="body-wrapper">
+        <header>
+            <div class="header-wrapper container">
+                <a href="#">
+                    <picture>
+                        <source media="(max-width: 880px)" srcset="icon/logo-mini.svg">
+                        <source media="(min-width: 881px)" srcset="icon/logo.svg">
+                        <img src="icon/logo.svg" alt="Logo" class="logo">
+                    </picture>
+                </a>
+                <div class="burger-menu">
+                    <span class="burger-span"></span>
+                </div>
+                <nav id="site-navigation" class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-list-item">
+                            <a href="#steps">How It Works</a>
+                        </li>
+                        <li class="nav-list-item">
+                            <a href="#preview">Plan Your Trip</a>
+                        </li>
+                        <li class="nav-list-item">
+                            <a href="#destinations">Destinations</a>
+                        </li>
+                        <li class="nav-list-item">
+                            <a href="#stories">Travel Stories</a>
+                        </li>
+                        <li class="nav-list-item mobile">
+                            <a href="#">Account</a>
+                        </li>
+                        <li class="nav-list-item mobile">
+                            <a href="#social">Social Media</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button type="button" class="login btn">Login</button>
+            </div>
+        </header>
+        <main>
+            <section id="preview" class="preview">
+                <div class="preview-wrapper container">
+                    <div class="preview-info">
+                        <h1>Explore the beauty of the World</h1>
+                        <p class="subheader">
+                            Recieve personalized recommendations for countries, hotels,
+                            activities and more
+                        </p>
+                        <form action="#" method="get" class="search-form">
+                            <input type="text" placeholder="What would you like to do?" />
+                            <button type="submit" class="search-btn btn">Start Planning</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section id="steps" class="steps container">
+                <h2>3 STEPS TO THE PERFECT TRIP</h2>
+                <ul class="steps-list">
+                    <li class="steps-list-item item-left left">
+                        <img src="icon/steps-icon1.svg" width="100" height="100" alt="icon1" />
+                        <p class="left-p">Tell us what you want to do</p>
                     </li>
-                    <li class="nav-list-item">
-                        <a href="#">Plan Your Trip</a>
+                    <li class="steps-list-item">
+                        <img src="icon/steps-icon2.svg" width="100" height="100" alt="icon2" />
+                        <p>Share us preferable dates</p>
                     </li>
-                    <li class="nav-list-item">
-                        <a href="#">Destinations</a>
-                    </li>
-                    <li class="nav-list-item">
-                        <a href="#">Travel Stories</a>
+                    <li class="steps-list-item right">
+                        <img src="icon/steps-icon3.svg" width="100" height="100" alt="icon3" />
+                        <p>We will give you recommendations</p>
                     </li>
                 </ul>
-            </nav>
-            <button type="button" class="login btn">Login</button>
-        </div>
-    </header>
-    <main>
-        <section class="preview">
-            <div class="preview-wrapper container">
-                <div class="preview-info">
-                    <h1>Explore the beauty of the World</h1>
-                    <p class="subheader">
-                        Recieve personalized recommendations for countries, hotels,
-                        activities and more
-                    </p>
-                    <form action="#" method="get" class="search-form">
-                        <input type="text" placeholder="What would you like to do?" />
-                        <button type="submit" class="search-btn btn">Start Planning</button>
-                    </form>
+            </section>
+            <section id="destinations" class="destinations">
+                <h2>POPULAR DESTINATIONS</h2>
+                <div class="slider-popular">
+                    <ul class="popular-list">
+                        <li class="popular-list-item active">
+                            <figure>
+                                <picture>
+                                    <source media="(max-width: 390px)" srcset="img/Rectangle26.jpg">
+                                    <source media="(min-width: 391px)" srcset="img/Rectangle23.jpg">
+                                    <img src="img/Rectangle23.jpg" alt="Spain">
+                                </picture>
+                                <figcaption class="popular-caption">SPAIN</figcaption>
+                            </figure>
+                        </li>
+                        <li class="popular-list-item">
+                            <figure>
+                                <picture>
+                                    <source media="(max-width: 390px)" srcset="img/Rectangle34.jpg">
+                                    <source media="(min-width: 391px)" srcset="img/Rectangle24.jpg">
+                                    <img src="img/Rectangle24.jpg" alt="Japan">
+                                </picture>
+                                <figcaption class="popular-caption">JAPAN</figcaption>
+                            </figure>
+                        </li>
+                        <li class="popular-list-item">
+                            <figure>
+                                <picture>
+                                    <source media="(max-width: 390px)" srcset="img/Rectangle35.jpg">
+                                    <source media="(min-width: 391px)" srcset="img/Rectangle25.jpg">
+                                    <img src="img/Rectangle25.jpg" alt="USA">
+                                </picture>
+                                <figcaption class="popular-caption">USA</figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                    <ul class="popular-links-list">
+                        <li id="item1" class="popular-links-item active">
+                            <img src="icon/Ellipse2.svg" alt="Ellipse" />
+                        </li>
+                        <li id="item2" class="popular-links-item">
+                            <img src="icon/Ellipse2.svg" alt="Ellipse" />
+                        </li>
+                        <li id="item3" class="popular-links-item">
+                            <img src="icon/Ellipse2.svg" alt="Ellipse" />
+                        </li>
+                    </ul>
                 </div>
+                <button type="button" class="prev"></button>
+                <button type="button" class="next extreme"></button>
+                <button type="button" class="find-link btn find-mobile">Find More</button>
+            </section>
+            <section id="stories" class="stories">
+                <h2 class="stories-header">TRAVEL STORIES</h2>
+                <div class="stories-wrapper">
+                    <article class="stories-item">
+                        <div class="stories-text">
+                            <h3>10 Photos of Attractive Thailand</h3>
+                            <p>Lorem ipsum carrots, enhanced undergraduate competition, but viewable to work and
+                                obesity.
+                                For more information, please contact us and physical exercise, except to obtain some
+                                advantage from it. Logged in to charms of pleasure is to be sent to eu fugiat pariatur.
+                                Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
+                                snacks. Excepteur sint occaecat cupidatat non proident, those who are at fault caller id
+                                is
+                                snacks. Lorem ipsum carrots, ecological tomato soup...</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="stories-img">
+                            <picture>
+                                <source media="(max-width: 750px)" srcset="img/Rectangle15-mini.jpg">
+                                <source media="(min-width: 751px)" srcset="img/Rectangle15.jpg">
+                                <img src="img/Rectangle15.jpg" alt="Attractive Thailand">
+                            </picture>
+                        </div>
+                    </article>
+                    <article class=" stories-item">
+                        <div class="stories-text">
+                            <h3>Canyonlands National Park, Utah</h3>
+                            <p>Lorem ipsum carrots, enhanced undergraduate competition, but viewable to work and
+                                obesity.
+                                For more information, please contact us and physical exercise, except to obtain some
+                                advantage from it. Logged in to charms of pleasure is to be sent to eu fugiat pariatur.
+                                Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
+                                snacks. Excepteur sint occaecat cupidatat non proident, those who are at fault caller id
+                                is
+                                snacks. Lorem ipsum carrots, ecological tomato soup...</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="stories-img">
+                            <picture>
+                                <source media="(max-width: 750px)" srcset="img/Rectangle16-mini.jpg">
+                                <source media="(min-width: 751px)" srcset="img/Rectangle16.jpg">
+                                <img src="img/Rectangle16.jpg" alt="Canyonlands National Park">
+                            </picture>
+                        </div>
+                    </article>
+                    <article class="stories-item">
+                        <div class="stories-text">
+                            <h3>I left my heart in the Mountains!</h3>
+                            <p>Lorem ipsum carrots, enhanced undergraduate competition, but viewable to work and
+                                obesity.
+                                For more information, please contact us and physical exercise, except to obtain some
+                                advantage from it. Logged in to charms of pleasure is to be sent to eu fugiat pariatur.
+                                Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
+                                snacks. Excepteur sint occaecat cupidatat non proident, those who are at fault caller id
+                                is
+                                snacks. Lorem ipsum carrots, ecological tomato soup...</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="stories-img">
+                            <picture>
+                                <source media="(max-width: 751px)" srcset="img/Rectangle17-mini.jpg">
+                                <source media="(min-width: 751px)" srcset="img/Rectangle17.jpg">
+                                <img src="img/Rectangle17.jpg" alt="The Mountains!">
+                            </picture>
+                        </div>
+                    </article>
+                    <article class="stories-item">
+                        <div class="stories-text">
+                            <h3>The Longest journey in my life!</h3>
+                            <p>Lorem ipsum carrots, enhanced undergraduate competition, but viewable to work and
+                                obesity.
+                                For more information, please contact us and physical exercise, except to obtain some
+                                advantage from it. Logged in to charms of pleasure is to be sent to eu fugiat pariatur.
+                                Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
+                                snacks. Excepteur sint occaecat cupidatat non proident, those who are at fault caller id
+                                is
+                                snacks. Lorem ipsum carrots, ecological tomato soup...</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="stories-img">
+                            <picture>
+                                <source media="(max-width: 750px)" srcset="img/Rectangle18-mini.jpg">
+                                <source media="(min-width: 751px)" srcset="img/Rectangle18.jpg">
+                                <img src="img/Rectangle18.jpg" alt="The Longest journey">
+                            </picture>
+                        </div>
+                    </article>
+                    <button type="button" class="find-link btn see-link">See More</button>
+                </div>
+            </section>
+        </main>
+        <footer class="main-footer">
+            <div class="footer-wrapper">
+                <p class="footer-text">All Rights Reserved © Travel Portal</p>
+                <ul id="social" class="footer-links">
+                    <li class="footer-links-item">
+                        <a href="#"><img src="icon/akar-icons_instagram-fill.svg" alt="instagram"></a>
+                    </li>
+                    <li class="footer-links-item">
+                        <a href="https://github.com/larvolynkina"><img src="icon/akar-icons_video.svg" alt="video"></a>
+                    </li>
+                    <li class="footer-links-item">
+                        <a href="https://rs.school/js-stage0/"><img src="icon/akar-icons_twitter-fill.svg"
+                                alt="twitter"></a>
+                    </li>
+                </ul>
             </div>
-        </section>
-        <section class="steps container">
-            <h2>3 STEPS TO THE PERFECT TRIP</h2>
-            <ul class="steps-list">
-                <li class="steps-list-item item-left">
-                    <img src="icon/steps-icon1.svg" width="100" height="100" alt="icon1" />
-                    <p>Tell us what you want to do</p>
-                </li>
-                <li class="steps-list-item">
-                    <img src="icon/steps-icon2.svg" width="100" height="100" alt="icon2" />
-                    <p>Share us preferable dates</p>
-                </li>
-                <li class="steps-list-item">
-                    <img src="icon/steps-icon3.svg" width="100" height="100" alt="icon3" />
-                    <p>We will give you recommendations</p>
-                </li>
-            </ul>
-        </section>
-        <section class="destinations">
-            <h2>POPULAR DESTINATIONS</h2>
-            <ul class="popular-list">
-                <li class="popular-list-item">
-                    <figure>
-                        <img src="img/Rectangle23.jpg" width="800" height="800" alt="Spain" />
-                        <figcaption class="popular-caption">SPAIN</figcaption>
-                    </figure>
-                </li>
-                <li class="popular-list-item">
-                    <figure>
-                        <img src="img/Rectangle24.jpg" width="800" height="800" alt="Japan" />
-                        <figcaption class="popular-caption">JAPAN</figcaption>
-                    </figure>
-                </li>
-                <li class="popular-list-item">
-                    <figure>
-                        <img src="img/Rectangle25.jpg" width="800" height="800" alt="USA" />
-                        <figcaption class="popular-caption">USA</figcaption>
-                    </figure>
-                </li>
-            </ul>
-            <ul class="popular-links-list">
-                <li>
-                    <popular-links-item>
-                        <a href="#"><img src="icon/Ellipse1.svg" alt="Ellipse1" /></a>
-                    </popular-links-item>
-                </li>
-                <li>
-                    <popular-links-item>
-                        <a href="#"><img src="icon/Ellipse2.svg" alt="Ellipse1" /></a>
-                    </popular-links-item>
-                </li>
-                <li>
-                    <popular-links-item>
-                        <a href="#"><img src="icon/Ellipse1.svg" alt="Ellipse1" /></a>
-                    </popular-links-item>
-                </li>
-            </ul>
-            <button type="button" class="find-link btn">Find More</button>
-        </section>
-        <section class="stories">
-            <h2 class="stories-header">TRAVEL STORIES</h2>
-            <div class="stories-wrapper">
-                <article class="stories-item">
-                    <div class="stories-text">
-                        <h3>10 Photos of Attractive Thailand</h3>
-                        <p>Lorem ipsum carrots, enhanced undergraduate competition, but viewable to work and obesity.
-                            For more information, please contact us and physical exercise, except to obtain some
-                            advantage from it. Logged in to charms of pleasure is to be sent to eu fugiat pariatur.
-                            Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
-                            snacks. Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
-                            snacks. Lorem ipsum carrots, ecological tomato soup...</p>
-                        <a href="#">Read More</a>
-                    </div>
-                    <div class="stories-img">
-                        <img src="img/Rectangle15.jpg" width="400" height="250" alt="Attractive Thailand">
-                    </div>
-                </article>
-                <article class="stories-item">
-                    <div class="stories-text">
-                        <h3>Canyonlands National Park, Utah</h3>
-                        <p>Lorem ipsum carrots, enhanced undergraduate competition, but viewable to work and obesity.
-                            For more information, please contact us and physical exercise, except to obtain some
-                            advantage from it. Logged in to charms of pleasure is to be sent to eu fugiat pariatur.
-                            Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
-                            snacks. Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
-                            snacks. Lorem ipsum carrots, ecological tomato soup...</p>
-                        <a href="#">Read More</a>
-                    </div>
-                    <div class="stories-img">
-                        <img src="img/Rectangle16.jpg" width="400" height="250" alt="Canyonlands National Park">
-                    </div>
-                </article>
-                <article class="stories-item">
-                    <div class="stories-text">
-                        <h3>I left my heart in the Mountains!</h3>
-                        <p>Lorem ipsum carrots, enhanced undergraduate competition, but viewable to work and obesity.
-                            For more information, please contact us and physical exercise, except to obtain some
-                            advantage from it. Logged in to charms of pleasure is to be sent to eu fugiat pariatur.
-                            Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
-                            snacks. Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
-                            snacks. Lorem ipsum carrots, ecological tomato soup...</p>
-                        <a href="#">Read More</a>
-                    </div>
-                    <div class="stories-img">
-                        <img src="img/Rectangle17.jpg" width="400" height="250" alt="The Mountains!">
-                    </div>
-                </article>
-                <article class="stories-item">
-                    <div class="stories-text">
-                        <h3>The Longest journey in my life!</h3>
-                        <p>Lorem ipsum carrots, enhanced undergraduate competition, but viewable to work and obesity.
-                            For more information, please contact us and physical exercise, except to obtain some
-                            advantage from it. Logged in to charms of pleasure is to be sent to eu fugiat pariatur.
-                            Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
-                            snacks. Excepteur sint occaecat cupidatat non proident, those who are at fault caller id is
-                            snacks. Lorem ipsum carrots, ecological tomato soup...</p>
-                        <a href="#">Read More</a>
-                    </div>
-                    <div class="stories-img">
-                        <img src="img/Rectangle18.jpg" width="400" height="250" alt="The Longest journey">
-                    </div>
-                </article>
-                <button type="button" class="find-link btn see-link">See More</button>
-            </div>
-        </section>
-    </main>
-    <footer class="main-footer">
-        <div class="footer-wrapper">
-            <p class="footer-text">All Rights Reserved © Travel Portal</p>
-            <ul class="footer-links">
-                <li class="footer-links-item">
-                    <a href="#"><img src="icon/akar-icons_instagram-fill.svg" alt="instagram"></a>
-                </li>
-                <li class="footer-links-item">
-                    <a href="https://github.com/larvolynkina"><img src="icon/akar-icons_video.svg" alt="video"></a>
-                </li>
-                <li class="footer-links-item">
-                    <a href="https://rs.school/js-stage0/"><img src="icon/akar-icons_twitter-fill.svg"
-                            alt="twitter"></a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-    <script src="index.js"></script>
+        </footer>
+        <script src="index.js"></script>
+    </div>
 </body>
 
 </html>
