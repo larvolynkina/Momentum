@@ -273,6 +273,14 @@ h2 {
     cursor: pointer;
 }
 
+.popular-links-item {
+    opacity: 0.5;
+}
+
+.popular-links-item.active-desctop {
+    opacity: 1;
+}
+
 .find-link {
     position: relative;
     left: 50%;
@@ -925,10 +933,6 @@ h2 {
     .popular-list-item.hidden {
         display: none;
     }
-
-    /* .popular-list-item.active {
-        display: block;
-    } */
 
     .popular-list-item img {
         border-radius: 16px;

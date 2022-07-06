@@ -25,12 +25,15 @@ document.addEventListener("click", function (e) {
   }
 });
 
+const popularList = document.querySelector(".popular-list");
+const popularLinksItems = document.querySelectorAll(".popular-links-item");
+const dot1 = document.getElementById("item1");
+const dot2 = document.getElementById("item2");
+const dot3 = document.getElementById("item3");
+
 if (window.innerWidth <= 390) {
   let offset = 0;
-  const popularList = document.querySelector(".popular-list");
-  const popularLinksItems = document.querySelectorAll(".popular-links-item");
   let indexOfLink = 0;
-
   document.querySelector(".next").addEventListener("click", function () {
     popularLinksItems[indexOfLink].classList.remove("active");
     offset = offset - 100;
@@ -59,10 +62,6 @@ if (window.innerWidth <= 390) {
     popularLinksItems[indexOfLink].classList.toggle("active");
   });
 
-  const dot1 = document.getElementById("item1");
-  const dot2 = document.getElementById("item2");
-  const dot3 = document.getElementById("item3");
-
   dot1.addEventListener("click", function (e) {
     dot1.classList.toggle("active");
     dot2.classList.remove("active");
@@ -82,5 +81,67 @@ if (window.innerWidth <= 390) {
     dot1.classList.remove("active");
     dot2.classList.remove("active");
     popularList.style.left = -204 + "%";
+  });
+} else {
+  let offsetDesctop = -97;
+  let indexOfLinkLeft = 1;
+  let indexOfLinkRight = 3;
+  let indexOfRound = 1;
+  popularList.addEventListener("click", function (e) {
+    popularLinksItems[indexOfRound].classList.remove("active-desctop");
+    if (e.target.closest("li") == popularList.children[indexOfLinkLeft]) {
+      offsetDesctop = offsetDesctop + 60;
+      if (offsetDesctop > 0) {
+        offsetDesctop = -157;
+        indexOfLinkLeft = 3;
+        indexOfLinkRight = 5;
+      }
+      popularList.style.left = offsetDesctop + "%";
+      indexOfLinkLeft = indexOfLinkLeft - 1;
+      indexOfLinkRight = indexOfLinkRight - 1;
+      indexOfRound -= 1;
+      if (indexOfRound < 0) {
+        indexOfRound = 2;
+      }
+      popularLinksItems[indexOfRound].classList.add("active-desctop");
+    } else if (
+      e.target.closest("li") == popularList.children[indexOfLinkRight]
+    ) {
+      offsetDesctop = offsetDesctop - 60;
+      if (offsetDesctop < -200) {
+        offsetDesctop = -37;
+        indexOfLinkLeft = -1;
+        indexOfLinkRight = 1;
+      }
+      popularList.style.left = offsetDesctop + "%";
+      indexOfLinkRight = indexOfLinkRight + 1;
+      indexOfLinkLeft = indexOfLinkLeft + 1;
+      indexOfRound += 1;
+      if (indexOfRound > 2) {
+        indexOfRound = 0;
+      }
+      popularLinksItems[indexOfRound].classList.add("active-desctop");
+    }
+  });
+
+  dot1.addEventListener("click", function (e) {
+    dot1.classList.add("active-desctop");
+    dot2.classList.remove("active-desctop");
+    dot3.classList.remove("active-desctop");
+    popularList.style.left = -37 + "%";
+  });
+
+  dot2.addEventListener("click", function (e) {
+    dot2.classList.add("active-desctop");
+    dot1.classList.remove("active-desctop");
+    dot3.classList.remove("active-desctop");
+    popularList.style.left = -97 + "%";
+  });
+
+  dot3.addEventListener("click", function (e) {
+    dot3.classList.add("active-desctop");
+    dot1.classList.remove("active-desctop");
+    dot2.classList.remove("active-desctop");
+    popularList.style.left = -157 + "%";
   });
 }
