@@ -19,11 +19,8 @@ const navLinks = document.querySelectorAll(".nav-list-item");
 navLinks.forEach((n) => n.addEventListener("click", closeMenu));
 
 document.addEventListener("click", function (e) {
-  if (
-    e.target !== burgerMenu &&
-    e.target !== siteNavigation &&
-    e.target.classList.contains("burger-span") == false
-  ) {
+  let clickClose = e.target.closest("div");
+  if (clickClose !== burgerMenu && e.target !== siteNavigation) {
     closeMenu();
   }
 });
@@ -36,9 +33,9 @@ if (window.innerWidth <= 390) {
 
   document.querySelector(".next").addEventListener("click", function () {
     popularLinksItems[indexOfLink].classList.remove("active");
-    offset = offset - 102;
+    offset = offset - 100;
     indexOfLink = indexOfLink + 1;
-    if (offset < -300) {
+    if (offset <= -300) {
       offset = 0;
     }
     if (indexOfLink > 2) {
@@ -50,10 +47,10 @@ if (window.innerWidth <= 390) {
 
   document.querySelector(".prev").addEventListener("click", function () {
     popularLinksItems[indexOfLink].classList.remove("active");
-    offset = offset + 102;
+    offset = offset + 100;
     indexOfLink = indexOfLink - 1;
     if (offset > 0) {
-      offset = -204;
+      offset = -200;
     }
     if (indexOfLink < 0) {
       indexOfLink = 2;

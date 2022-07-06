@@ -223,9 +223,10 @@ h2 {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    width: 175%;
-    left: -38%;
+    width: 294%;
+    left: -97%;
     margin-top: 46px;
+    transition: all 0.5s ease;
 }
 
 .prev,
@@ -919,6 +920,10 @@ h2 {
         width: auto;
         height: 210px;
         transition: all 0.5s ease 0s;
+    }
+
+    .popular-list-item.hidden {
+        display: none;
     }
 
     /* .popular-list-item.active {
