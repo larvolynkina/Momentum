@@ -13,7 +13,8 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Red+Hat+Text:wght@500&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Red+Hat+Text:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Travel Portal</title>
@@ -56,6 +57,31 @@
                     </ul>
                 </nav>
                 <button type="button" class="login btn">Login</button>
+            </div>
+            <div class="login-popup">
+                <h3 class="popup-header">Log in to your account</h3>
+                <div class="facebook-sign">
+                    <a class="sign-links" href="#">Sign In with Facebook</a>
+                </div>
+                <div class="google-sign">
+                    <a class="sign-links" href="#">Sign In with Google</a>
+                </div>
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                <form action="#" method="post" class="login-form">
+                    <p>E-mail</p>
+                    <input type="email" id="email-input">
+                    <p>Password</p>
+                    <input type="password" id="password-input">
+                    <button class="login-popup-btn" type="submit">Sign In</button>
+                </form>
+                <a href="#" class="login-popup-link">Forgot Your Password?</a>
+                <div class="divider-full"></div>
+                <div class="login-popup-footer">
+                    <span>Don’t have an account?</span>
+                    <a href="#" class="login-popup-link">Register</a>
+                </div>
             </div>
         </header>
         <main>
