@@ -73,14 +73,14 @@ if (window.innerWidth <= 390) {
     dot2.classList.toggle("active");
     dot1.classList.remove("active");
     dot3.classList.remove("active");
-    popularList.style.left = -102 + "%";
+    popularList.style.left = -100 + "%";
   });
 
   dot3.addEventListener("click", function (e) {
     dot3.classList.toggle("active");
     dot1.classList.remove("active");
     dot2.classList.remove("active");
-    popularList.style.left = -204 + "%";
+    popularList.style.left = -200 + "%";
   });
 } else {
   let offsetDesctop = -97;

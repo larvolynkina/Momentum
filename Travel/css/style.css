@@ -963,6 +963,10 @@ h2 {
         height: 8px;
     }
 
+    .popular-links-item.active-desctop {
+        opacity: 0.5;
+    }
+
     .popular-links-item {
         opacity: 0.5;
     }
