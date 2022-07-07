@@ -1,6 +1,6 @@
-// console.log(
-//   "1. Вёрстка соответствует макету. Ширина экрана 390px +48;\n2. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. +15;\n3. На ширине экрана 390рх и меньше реализовано адаптивное меню +22;\nИтоговая оценка - 75 баллов."
-// );
+console.log(
+  "1. Слайдер изображений в секции destinations +50;\n2. Нажатие на кнопку Login (кнопка Account в мобильной версии) показывает сверстанный логин попап + 50;\n3. Нажатие на кнопку Register на Login попапе меняет разметку попапа на разметку Sign Up попапа согласно макету. +25;\nИтоговая оценка - 100 баллов."
+);
 
 const siteNavigation = document.getElementById("site-navigation");
 const burgerMenu = document.querySelector(".burger-menu");
@@ -31,7 +31,7 @@ const dot1 = document.getElementById("item1");
 const dot2 = document.getElementById("item2");
 const dot3 = document.getElementById("item3");
 
-//slider
+//mobile slider
 
 if (window.innerWidth <= 390) {
   let offset = 0;
@@ -90,6 +90,7 @@ if (window.innerWidth <= 390) {
     indexOfLink = 2;
     popularList.style.left = -200 + "%";
   });
+  //desctop slider
 } else {
   let offsetDesctop = -97;
   let indexOfLinkLeft = 1;
@@ -129,6 +130,8 @@ if (window.innerWidth <= 390) {
         indexOfRound = 0;
       }
       popularLinksItems[indexOfRound].classList.add("active-desctop");
+    } else {
+      popularLinksItems[indexOfRound].classList.add("active-desctop");
     }
   });
 
@@ -139,6 +142,8 @@ if (window.innerWidth <= 390) {
     popularList.style.left = -37 + "%";
     indexOfLinkLeft = 0;
     indexOfLinkRight = 2;
+    offsetDesctop = -37;
+    indexOfRound = 0;
   });
 
   dot2.addEventListener("click", function () {
@@ -148,6 +153,8 @@ if (window.innerWidth <= 390) {
     popularList.style.left = -97 + "%";
     indexOfLinkLeft = 1;
     indexOfLinkRight = 3;
+    offsetDesctop = -97;
+    indexOfRound = 1;
   });
 
   dot3.addEventListener("click", function () {
@@ -157,6 +164,8 @@ if (window.innerWidth <= 390) {
     popularList.style.left = -157 + "%";
     indexOfLinkLeft = 2;
     indexOfLinkRight = 4;
+    offsetDesctop = -157;
+    indexOfRound = 2;
   });
 }
 
