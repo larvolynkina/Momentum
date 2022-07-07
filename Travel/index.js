@@ -1,6 +1,6 @@
-console.log(
-  "1. Вёрстка соответствует макету. Ширина экрана 390px +48;\n2. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. +15;\n3. На ширине экрана 390рх и меньше реализовано адаптивное меню +22;\nИтоговая оценка - 75 баллов."
-);
+// console.log(
+//   "1. Вёрстка соответствует макету. Ширина экрана 390px +48;\n2. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. +15;\n3. На ширине экрана 390рх и меньше реализовано адаптивное меню +22;\nИтоговая оценка - 75 баллов."
+// );
 
 const siteNavigation = document.getElementById("site-navigation");
 const burgerMenu = document.querySelector(".burger-menu");
@@ -145,3 +145,61 @@ if (window.innerWidth <= 390) {
     popularList.style.left = -157 + "%";
   });
 }
+
+const loginBtn = document.querySelector(".login");
+const loginPopup = document.querySelector(".login-popup");
+const overlay = document.querySelector(".overlay");
+
+const closeLoginPopup = () => {
+  loginPopup.classList.toggle("active");
+  overlay.classList.toggle("active");
+};
+
+loginBtn.addEventListener("click", function (e) {
+  loginPopup.classList.toggle("active");
+  overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", function () {
+  closeLoginPopup();
+});
+
+const btnLoginPopup = document.querySelector(".login-popup-btn");
+const loginForm = document.querySelector(".login-form");
+const emailInput = document.getElementById("email-input");
+const passwordInput = document.getElementById("password-input");
+const loginPopupFooter = document.querySelector(".login-popup-footer");
+
+loginForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert(`Ваш E-mail: ${emailInput.value}\nВаш пароль: ${passwordInput.value}`);
+});
+
+let loginPopupChildren = loginPopup.children;
+let createAccount = loginPopupChildren;
+const loginPopupArr = Array.from(loginPopupChildren);
+const loginPopupCopy = loginPopup.innerHTML;
+
+const openRegister = () => {
+  for (let i = 0; i < 3; i++) {
+    createAccount[1].remove();
+  }
+  createAccount[2].remove();
+  createAccount[0].innerHTML = "Create account";
+  btnLoginPopup.innerHTML = "Sign Up";
+  let ThirdChild = createAccount[3];
+  ThirdChild.childNodes[1].innerHTML = "Already have an account?";
+  ThirdChild.childNodes[3].innerHTML = "Log in";
+  loginPopupFooter.removeEventListener("click", openRegister);
+  loginPopupFooter.addEventListener("click", closeRegister);
+};
+
+const closeRegister = () => {
+  loginPopup.innerHTML = loginPopupCopy;
+  console.log(loginPopup);
+  loginPopupChildren[7].replaceWith(loginPopupArr[7]);
+  loginPopupChildren[4].replaceWith(loginPopupArr[4]);
+  loginPopupFooter.addEventListener("click", openRegister);
+};
+
+loginPopupFooter.addEventListener("click", openRegister);

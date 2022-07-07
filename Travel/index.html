@@ -22,6 +22,7 @@
 
 <body>
     <div class="body-wrapper">
+        <div class="overlay"></div>
         <header>
             <div class="header-wrapper container">
                 <a href="#">
@@ -71,9 +72,9 @@
                 </div>
                 <form action="#" method="post" class="login-form">
                     <p>E-mail</p>
-                    <input type="email" id="email-input">
+                    <input type="email" name="email-input" required id="email-input">
                     <p>Password</p>
-                    <input type="password" id="password-input">
+                    <input type="password" name="password-input" id="password-input" required>
                     <button class="login-popup-btn" type="submit">Sign In</button>
                 </form>
                 <a href="#" class="login-popup-link">Forgot Your Password?</a>
