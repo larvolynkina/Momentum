@@ -31,6 +31,8 @@ const dot1 = document.getElementById("item1");
 const dot2 = document.getElementById("item2");
 const dot3 = document.getElementById("item3");
 
+//slider
+
 if (window.innerWidth <= 390) {
   let offset = 0;
   let indexOfLink = 0;
@@ -63,23 +65,29 @@ if (window.innerWidth <= 390) {
   });
 
   dot1.addEventListener("click", function () {
-    dot1.classList.toggle("active");
+    dot1.classList.add("active");
     dot2.classList.remove("active");
     dot3.classList.remove("active");
+    offset = 0;
+    indexOfLink = 0;
     popularList.style.left = 0 + "%";
   });
 
   dot2.addEventListener("click", function () {
-    dot2.classList.toggle("active");
+    dot2.classList.add("active");
     dot1.classList.remove("active");
     dot3.classList.remove("active");
+    offset = -100;
+    indexOfLink = 1;
     popularList.style.left = -100 + "%";
   });
 
   dot3.addEventListener("click", function () {
-    dot3.classList.toggle("active");
+    dot3.classList.add("active");
     dot1.classList.remove("active");
     dot2.classList.remove("active");
+    offset = -200;
+    indexOfLink = 2;
     popularList.style.left = -200 + "%";
   });
 } else {
@@ -151,6 +159,8 @@ if (window.innerWidth <= 390) {
     indexOfLinkRight = 4;
   });
 }
+
+//Pop-up
 
 const loginBtn = document.querySelectorAll(".click-btn");
 const loginPopup = document.querySelector(".login-popup");
