@@ -492,6 +492,7 @@ h2 {
 
 .popular-links-item {
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .popular-links-item.active-desctop {
@@ -774,6 +775,11 @@ h2 {
 
     .stories-header {
         margin: 40px 0;
+    }
+
+    .login-popup {
+        width: 70%;
+        top: 50px;
     }
 }
 

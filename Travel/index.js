@@ -5,7 +5,7 @@
 const siteNavigation = document.getElementById("site-navigation");
 const burgerMenu = document.querySelector(".burger-menu");
 const mainNav = document.querySelector(".main-nav");
-burgerMenu.addEventListener("click", function (e) {
+burgerMenu.addEventListener("click", function () {
   mainNav.classList.toggle("main-nav-active");
   burgerMenu.classList.toggle("active");
 });
@@ -19,7 +19,7 @@ const navLinks = document.querySelectorAll(".nav-list-item");
 navLinks.forEach((n) => n.addEventListener("click", closeMenu));
 
 document.addEventListener("click", function (e) {
-  let clickClose = e.target.closest("div");
+  const clickClose = e.target.closest("div");
   if (clickClose !== burgerMenu && e.target !== siteNavigation) {
     closeMenu();
   }
@@ -62,21 +62,21 @@ if (window.innerWidth <= 390) {
     popularLinksItems[indexOfLink].classList.toggle("active");
   });
 
-  dot1.addEventListener("click", function (e) {
+  dot1.addEventListener("click", function () {
     dot1.classList.toggle("active");
     dot2.classList.remove("active");
     dot3.classList.remove("active");
     popularList.style.left = 0 + "%";
   });
 
-  dot2.addEventListener("click", function (e) {
+  dot2.addEventListener("click", function () {
     dot2.classList.toggle("active");
     dot1.classList.remove("active");
     dot3.classList.remove("active");
     popularList.style.left = -100 + "%";
   });
 
-  dot3.addEventListener("click", function (e) {
+  dot3.addEventListener("click", function () {
     dot3.classList.toggle("active");
     dot1.classList.remove("active");
     dot2.classList.remove("active");
@@ -124,29 +124,35 @@ if (window.innerWidth <= 390) {
     }
   });
 
-  dot1.addEventListener("click", function (e) {
+  dot1.addEventListener("click", function () {
     dot1.classList.add("active-desctop");
     dot2.classList.remove("active-desctop");
     dot3.classList.remove("active-desctop");
     popularList.style.left = -37 + "%";
+    indexOfLinkLeft = 0;
+    indexOfLinkRight = 2;
   });
 
-  dot2.addEventListener("click", function (e) {
+  dot2.addEventListener("click", function () {
     dot2.classList.add("active-desctop");
     dot1.classList.remove("active-desctop");
     dot3.classList.remove("active-desctop");
     popularList.style.left = -97 + "%";
+    indexOfLinkLeft = 1;
+    indexOfLinkRight = 3;
   });
 
-  dot3.addEventListener("click", function (e) {
+  dot3.addEventListener("click", function () {
     dot3.classList.add("active-desctop");
     dot1.classList.remove("active-desctop");
     dot2.classList.remove("active-desctop");
     popularList.style.left = -157 + "%";
+    indexOfLinkLeft = 2;
+    indexOfLinkRight = 4;
   });
 }
 
-const loginBtn = document.querySelector(".login");
+const loginBtn = document.querySelectorAll(".click-btn");
 const loginPopup = document.querySelector(".login-popup");
 const overlay = document.querySelector(".overlay");
 
@@ -155,10 +161,12 @@ const closeLoginPopup = () => {
   overlay.classList.toggle("active");
 };
 
-loginBtn.addEventListener("click", function (e) {
-  loginPopup.classList.toggle("active");
-  overlay.classList.toggle("active");
-});
+loginBtn.forEach((item) =>
+  item.addEventListener("click", function () {
+    loginPopup.classList.toggle("active");
+    overlay.classList.toggle("active");
+  })
+);
 
 overlay.addEventListener("click", function () {
   closeLoginPopup();
@@ -175,8 +183,8 @@ loginForm.addEventListener("submit", function (e) {
   alert(`Ваш E-mail: ${emailInput.value}\nВаш пароль: ${passwordInput.value}`);
 });
 
-let loginPopupChildren = loginPopup.children;
-let createAccount = loginPopupChildren;
+const loginPopupChildren = loginPopup.children;
+const createAccount = loginPopupChildren;
 const loginPopupArr = Array.from(loginPopupChildren);
 const loginPopupCopy = loginPopup.innerHTML;
 
@@ -187,7 +195,7 @@ const openRegister = () => {
   createAccount[2].remove();
   createAccount[0].innerHTML = "Create account";
   btnLoginPopup.innerHTML = "Sign Up";
-  let ThirdChild = createAccount[3];
+  const ThirdChild = createAccount[3];
   ThirdChild.childNodes[1].innerHTML = "Already have an account?";
   ThirdChild.childNodes[3].innerHTML = "Log in";
   loginPopupFooter.removeEventListener("click", openRegister);
@@ -196,9 +204,12 @@ const openRegister = () => {
 
 const closeRegister = () => {
   loginPopup.innerHTML = loginPopupCopy;
-  console.log(loginPopup);
   loginPopupChildren[7].replaceWith(loginPopupArr[7]);
   loginPopupChildren[4].replaceWith(loginPopupArr[4]);
+  btnLoginPopup.innerHTML = "Sign In";
+  const EightChild = loginPopupChildren[7];
+  EightChild.childNodes[1].innerHTML = "Don’t have an account?";
+  EightChild.childNodes[3].innerHTML = "Register";
   loginPopupFooter.addEventListener("click", openRegister);
 };
 
