@@ -13,7 +13,8 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Red+Hat+Text:wght@500&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&family=Red+Hat+Text:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Travel Portal</title>
@@ -21,6 +22,7 @@
 
 <body>
     <div class="body-wrapper">
+        <div class="overlay"></div>
         <header>
             <div class="header-wrapper container">
                 <a href="#">
@@ -47,7 +49,7 @@
                         <li class="nav-list-item">
                             <a href="#stories">Travel Stories</a>
                         </li>
-                        <li class="nav-list-item mobile">
+                        <li class="nav-list-item mobile click-btn">
                             <a href="#">Account</a>
                         </li>
                         <li class="nav-list-item mobile">
@@ -55,7 +57,32 @@
                         </li>
                     </ul>
                 </nav>
-                <button type="button" class="login btn">Login</button>
+                <button type="button" class="login btn click-btn">Login</button>
+            </div>
+            <div class="login-popup">
+                <h3 class="popup-header">Log in to your account</h3>
+                <div class="facebook-sign">
+                    <a class="sign-links" href="#">Sign In with Facebook</a>
+                </div>
+                <div class="google-sign">
+                    <a class="sign-links" href="#">Sign In with Google</a>
+                </div>
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                <form action="#" method="post" class="login-form">
+                    <p>E-mail</p>
+                    <input type="email" name="email-input" required id="email-input">
+                    <p>Password</p>
+                    <input type="password" name="password-input" id="password-input" required>
+                    <button class="login-popup-btn" type="submit">Sign In</button>
+                </form>
+                <a href="#" class="login-popup-link">Forgot Your Password?</a>
+                <div class="divider-full"></div>
+                <div class="login-popup-footer">
+                    <span>Don’t have an account?</span>
+                    <a href="#" class="login-popup-link">Register</a>
+                </div>
             </div>
         </header>
         <main>
@@ -95,6 +122,16 @@
                 <h2>POPULAR DESTINATIONS</h2>
                 <div class="slider-popular">
                     <ul class="popular-list">
+                        <li class="popular-list-item hidden">
+                            <figure>
+                                <picture>
+                                    <source media="(max-width: 390px)" srcset="img/Rectangle35.jpg">
+                                    <source media="(min-width: 391px)" srcset="img/Rectangle25.jpg">
+                                    <img src="img/Rectangle25.jpg" alt="USA">
+                                </picture>
+                                <figcaption class="popular-caption">USA</figcaption>
+                            </figure>
+                        </li>
                         <li class="popular-list-item active">
                             <figure>
                                 <picture>
@@ -125,12 +162,22 @@
                                 <figcaption class="popular-caption">USA</figcaption>
                             </figure>
                         </li>
+                        <li class="popular-list-item hidden">
+                            <figure>
+                                <picture>
+                                    <source media="(max-width: 390px)" srcset="img/Rectangle26.jpg">
+                                    <source media="(min-width: 391px)" srcset="img/Rectangle23.jpg">
+                                    <img src="img/Rectangle23.jpg" alt="Spain">
+                                </picture>
+                                <figcaption class="popular-caption">SPAIN</figcaption>
+                            </figure>
+                        </li>
                     </ul>
                     <ul class="popular-links-list">
                         <li id="item1" class="popular-links-item active">
                             <img src="icon/Ellipse2.svg" alt="Ellipse" />
                         </li>
-                        <li id="item2" class="popular-links-item">
+                        <li id="item2" class="popular-links-item active-desctop">
                             <img src="icon/Ellipse2.svg" alt="Ellipse" />
                         </li>
                         <li id="item3" class="popular-links-item">

@@ -22,6 +22,7 @@ body {
 }
 
 header {
+    position: relative;
     min-height: 90px;
     background: rgba(242, 120, 92, 0.7);
     box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
@@ -98,6 +99,223 @@ figure {
 .btn:active {
     position: relative;
     top: 2px;
+}
+
+.login-popup {
+    position: fixed;
+    padding: 25px 45px 20px;
+    z-index: 6;
+    width: 39.3%;
+    max-width: 560px;
+    left: 50%;
+    transform: translate(-50%, -200%);
+    background: linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    background-color: black;
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay.active {
+    display: block;
+
+}
+
+.login-popup.active {
+    transform: translate(-50%, 10%);
+}
+
+.popup-header {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #0D606F;
+}
+
+.facebook-sign {
+    display: block;
+    margin-top: 30px;
+    background: #1877F2;
+    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    padding: 13px 0;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.facebook-sign::before {
+    content: url('../icon/FacebookLogo.svg');
+    position: relative;
+    margin-right: 10px;
+    top: 1px;
+}
+
+.sign-links {
+    vertical-align: top;
+}
+
+.google-sign {
+    margin-top: 22px;
+    padding: 13px 0;
+    display: block;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #0D606F;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.google-sign::before {
+    content: url('../icon/logo-google.svg');
+    position: relative;
+    margin-right: 10px;
+    top: 1px;
+}
+
+.divider {
+    margin-top: 26px;
+    position: relative;
+}
+
+.divider span {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(13, 96, 111, 0.5);
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    width: 46%;
+    height: 0px;
+    border: 1px solid rgba(13, 96, 111, 0.5);
+    left: 0;
+    top: 12px;
+}
+
+.divider::after {
+    content: '';
+    position: absolute;
+    width: 46%;
+    height: 0px;
+    border: 1px solid rgba(13, 96, 111, 0.5);
+    right: 0;
+    top: 12px;
+}
+
+.login-form {
+    margin: 10px 0;
+    text-align: left;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #0D606F;
+}
+
+.login-form input {
+    padding: 0;
+    width: 100%;
+    height: 54px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+input:active,
+textarea:active {
+    outline: none;
+}
+
+.login-popup-btn {
+    display: block;
+    width: 100%;
+    height: 54px;
+    border: none;
+    background: #0D606F;
+    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+    border-radius: 10px;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-top: 7px;
+}
+
+.login-popup-link {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration-line: underline;
+    color: #0D606F;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+}
+
+.divider-full {
+    position: relative;
+    margin-top: 22px;
+    margin-bottom: 20px;
+}
+
+.divider-full::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    border: 1px solid rgba(13, 96, 111, 0.5);
+    left: 0;
+    top: 0;
+}
+
+.login-popup-footer {
+    margin-top: 46px;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(13, 96, 111, 0.5);
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    cursor: pointer;
 }
 
 h1 {
@@ -223,9 +441,10 @@ h2 {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    width: 175%;
-    left: -38%;
+    width: 294%;
+    left: -97%;
     margin-top: 46px;
+    transition: all 0.5s ease;
 }
 
 .prev,
@@ -270,6 +489,15 @@ h2 {
 .popular-link {
     display: block;
     cursor: pointer;
+}
+
+.popular-links-item {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.popular-links-item.active-desctop {
+    opacity: 1;
 }
 
 .find-link {
@@ -548,6 +776,11 @@ h2 {
 
     .stories-header {
         margin: 40px 0;
+    }
+
+    .login-popup {
+        width: 70%;
+        top: 0;
     }
 }
 
@@ -921,9 +1154,9 @@ h2 {
         transition: all 0.5s ease 0s;
     }
 
-    /* .popular-list-item.active {
-        display: block;
-    } */
+    .popular-list-item.hidden {
+        display: none;
+    }
 
     .popular-list-item img {
         border-radius: 16px;
@@ -952,6 +1185,10 @@ h2 {
     .popular-links-item img {
         width: 8px;
         height: 8px;
+    }
+
+    .popular-links-item.active-desctop {
+        opacity: 0.5;
     }
 
     .popular-links-item {
