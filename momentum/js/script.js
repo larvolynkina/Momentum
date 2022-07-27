@@ -1,3 +1,5 @@
+import playList from './playList.js';
+
 // 1. Time and Date
 const time = document.querySelector('.time');
 const dataElement = document.querySelector('.date');
@@ -154,7 +156,98 @@ function getLocalStorage() {
   }
   if (localStorage.getItem('city')) {
     inputCity.value = localStorage.getItem('city');
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=193b021fd8d76c22e00563035b5f6d2d&units=metric`;
     getWeather();
   }
 }
 window.addEventListener('load', getLocalStorage);
+
+// Quotes
+
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuoteBtn = document.querySelector('.change-quote');
+function getRandomNumQuotes() {
+  return Math.floor(Math.random() * (102 - 0)) + 0;
+}
+let quoteNumber = getRandomNumQuotes();
+
+function getQuotes() {
+  fetch('quotes.json')
+    .then((res) => res.json())
+    .then((data) => {
+      quoteNumber = getRandomNumQuotes();
+      quote.textContent = `"${data.quotes[quoteNumber].quote}"`;
+      author.textContent = data.quotes[quoteNumber].author;
+    });
+}
+
+getQuotes();
+
+changeQuoteBtn.addEventListener('click', getQuotes);
+
+// Audio
+
+const playBtn = document.querySelector('.play');
+const playPrevBtn = document.querySelector('.play-prev');
+const playNextBtn = document.querySelector('.play-next');
+const playListUl = document.querySelector('.play-list');
+const audio = new Audio();
+let isPlay = false;
+let playNum = 0;
+
+playList.forEach((track) => {
+  const li = document.createElement('li');
+  li.classList.add('play-item');
+  li.textContent = track.title;
+  playListUl.append(li);
+});
+
+const trackTitle = document.querySelectorAll('.play-item');
+
+function playAudio() {
+  if (isPlay === false) {
+    audio.src = playList[playNum].src;
+    trackTitle[playNum].classList.add('item-active');
+    audio.currentTime = 0;
+    audio.play();
+    isPlay = true;
+    playBtn.classList.add('pause');
+  } else {
+    audio.pause();
+    isPlay = false;
+    playBtn.classList.remove('pause');
+  }
+}
+
+playBtn.addEventListener('click', playAudio);
+
+const playPrev = () => {
+  if (isPlay === true) {
+    isPlay = false;
+  }
+  trackTitle[playNum].classList.remove('item-active');
+  playNum -= 1;
+  if (playNum < 0) {
+    playNum = 3;
+  }
+  playAudio();
+  trackTitle[playNum].classList.add('item-active');
+};
+
+playPrevBtn.addEventListener('click', playPrev);
+
+const playNext = () => {
+  if (isPlay === true) {
+    isPlay = false;
+  }
+  trackTitle[playNum].classList.remove('item-active');
+  playNum += 1;
+  if (playNum === 4) {
+    playNum = 0;
+  }
+  playAudio();
+  trackTitle[playNum].classList.add('item-active');
+};
+
+playNextBtn.addEventListener('click', playNext);
