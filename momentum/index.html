@@ -13,10 +13,30 @@
 <body>
   <header class="header">
     <div class="player">
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
+      <div id="title" class="artSong-header">
+        <span id="track"></span>
+      </div>
+      <div class="player-info">
+        <div class="player-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+        <div class="progress">
+          <div class="duration-player">
+            <div id="progress"></div>
+          </div>
+          <div class="duration-timer">
+            <div id="timer" class="timer-header">0:00</div>
+            <div id="duration"></div>
+          </div>
+        </div>
+        <div class="volume-header">
+          <div id="muteButton" class="muteButton">
+            <img src="assets/svg/volume.svg" alt="volume">
+          </div>
+          <input id="soundVolume" type="range" min="0" max="1" step="0.01">
+        </div>
       </div>
       <ul class="play-list"></ul>
     </div>
