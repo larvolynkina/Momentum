@@ -357,6 +357,34 @@ body {
   opacity: 0.8;
 }
 
+.language {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.language-item {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.language-item.active {
+  opacity: 0.8;
+  box-shadow: 0px 1px 5px 3px rgb(153, 149, 149);
+}
+
+.english {
+  background-image: url(../assets/svg/uk-union-flag.svg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.russian {
+  background-image: url(../assets/svg/ru.svg)
+}
+
 @media (max-width: 768px) {
   .time {
     min-height: 80px;

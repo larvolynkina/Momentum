@@ -362,3 +362,18 @@ trackTitle.forEach((track, index) => {
 audio.addEventListener('ended', () => {
   playNext();
 });
+
+// languages
+
+const russian = document.querySelector('.russian');
+const english = document.querySelector('.english');
+
+russian.addEventListener('click', () => {
+  russian.classList.add('active');
+  english.classList.remove('active');
+});
+
+english.addEventListener('click', () => {
+  english.classList.add('active');
+  russian.classList.remove('active');
+});
