@@ -20,6 +20,10 @@ const updateDate = () => {
 // 2. Greetings
 
 const greeting = document.querySelector('.greeting');
+const input = document.querySelector('.name');
+
+input.placeholder = '[Enter name]';
+
 let hours = date.getHours();
 const timeOfDay = [
   'Good morning',
@@ -55,8 +59,6 @@ const updateTime = () => {
 };
 
 updateTime();
-
-const input = document.querySelector('.name');
 
 // Slider
 
@@ -110,10 +112,33 @@ const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const inputCity = document.querySelector('.city');
 const weatherError = document.querySelector('.weather-error');
-inputCity.value = 'Minsk';
-let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=193b021fd8d76c22e00563035b5f6d2d&units=metric`;
 
-async function getWeather() {
+inputCity.value = 'Minsk';
+
+const weatherLocale = [
+  {
+    error1: 'Error! city not found for',
+    error2: 'Error! Nothing to geocode for',
+    wind: 'Wind speed',
+    windUnit: 'm/s',
+    humidity: 'Humidity',
+    city: 'Minsk',
+    url: `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=193b021fd8d76c22e00563035b5f6d2d&units=metric`,
+  },
+  {
+    error1: 'Ошибка! Не найден город с названием',
+    error2: 'Ошибка! Введена пустая строка',
+    wind: 'Скорость ветра',
+    windUnit: 'м/с',
+    humidity: 'Влажность',
+    city: 'Минск',
+    url: `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=ru&appid=193b021fd8d76c22e00563035b5f6d2d&units=metric`,
+  },
+];
+
+let { url } = weatherLocale[0];
+
+async function getWeather(sourse) {
   const res = await fetch(url);
   const data = await res.json();
   if (data.cod === '404' || inputCity.value === '') {
@@ -123,9 +148,17 @@ async function getWeather() {
     wind.textContent = '';
     humidity.textContent = '';
     if (data.cod === '404') {
-      weatherError.textContent = `Error! city not found for '${inputCity.value}'!`;
+      weatherError.textContent = `${sourse.error1} '${inputCity.value}'!`;
+      setTimeout(() => {
+        inputCity.value = 'Minsk';
+        location.reload();
+      }, 3000);
     } else if (inputCity.value === '') {
-      weatherError.textContent = `Error! Nothing to geocode for '${inputCity.value}'!`;
+      weatherError.textContent = `${sourse.error2} '${inputCity.value}'!`;
+      setTimeout(() => {
+        inputCity.value = 'Minsk';
+        location.reload();
+      }, 3000);
     }
   } else {
     weatherIcon.className = 'weather-icon owf';
@@ -133,16 +166,25 @@ async function getWeather() {
     temperature.textContent = `${Math.floor(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
     weatherError.textContent = '';
-    wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${data.main.humidity}%`;
+    wind.textContent = `${sourse.wind}: ${Math.floor(data.wind.speed)} ${
+      sourse.windUnit
+    }`;
+    humidity.textContent = `${sourse.humidity}: ${data.main.humidity}%`;
   }
 }
-getWeather();
+getWeather(weatherLocale[0]);
 
-inputCity.addEventListener('change', () => {
+function changeInputCityEn() {
   url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=193b021fd8d76c22e00563035b5f6d2d&units=metric`;
-  getWeather();
-});
+  getWeather(weatherLocale[0]);
+}
+
+function changeInputCityRu() {
+  url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=ru&appid=193b021fd8d76c22e00563035b5f6d2d&units=metric`;
+  getWeather(weatherLocale[1]);
+}
+
+inputCity.addEventListener('change', changeInputCityEn);
 
 function setLocalStorage() {
   localStorage.setItem('name', input.value);
@@ -150,17 +192,17 @@ function setLocalStorage() {
 }
 window.addEventListener('beforeunload', setLocalStorage);
 
-function getLocalStorage() {
+function getLocalStorage(lang, source) {
   if (localStorage.getItem('name')) {
     input.value = localStorage.getItem('name');
   }
   if (localStorage.getItem('city')) {
     inputCity.value = localStorage.getItem('city');
-    url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=193b021fd8d76c22e00563035b5f6d2d&units=metric`;
-    getWeather();
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=${lang}&appid=193b021fd8d76c22e00563035b5f6d2d&units=metric`;
+    getWeather(source);
   }
 }
-window.addEventListener('load', getLocalStorage);
+window.addEventListener('load', getLocalStorage('en', weatherLocale[0]));
 
 // Quotes
 
@@ -172,8 +214,18 @@ function getRandomNumQuotes() {
 }
 let quoteNumber = getRandomNumQuotes();
 
-function getQuotes() {
-  fetch('quotes.json')
+// function getQuotes() {
+//   fetch('quotes.json')
+//     .then((res) => res.json())
+//     .then((data) => {
+//       quoteNumber = getRandomNumQuotes();
+//       quote.textContent = `"${data.quotes[quoteNumber].quote}"`;
+//       author.textContent = data.quotes[quoteNumber].author;
+//     });
+// }
+
+function getQuotes(src) {
+  fetch(src)
     .then((res) => res.json())
     .then((data) => {
       quoteNumber = getRandomNumQuotes();
@@ -182,9 +234,17 @@ function getQuotes() {
     });
 }
 
-getQuotes();
+getQuotes('quotes.json');
 
-changeQuoteBtn.addEventListener('click', getQuotes);
+function changeQuoteEn() {
+  getQuotes('quotes.json');
+}
+
+function changeQuoteRu() {
+  getQuotes('quotes-rus.json');
+}
+
+changeQuoteBtn.addEventListener('click', changeQuoteEn);
 
 // Audio
 
@@ -371,9 +431,39 @@ const english = document.querySelector('.english');
 russian.addEventListener('click', () => {
   russian.classList.add('active');
   english.classList.remove('active');
+  inputCity.removeEventListener('change', changeInputCityEn);
+  inputCity.addEventListener('change', changeInputCityRu);
+
+  window.removeEventListener('load', getLocalStorage('en', weatherLocale[0]));
+  window.addEventListener('load', getLocalStorage('ru', weatherLocale[1]));
+
+  inputCity.value = 'Минск';
+  url = weatherLocale[1].url;
+  getWeather(weatherLocale[1]);
+
+  getQuotes('quotes-rus.json');
+  changeQuoteBtn.removeEventListener('click', changeQuoteEn);
+  changeQuoteBtn.addEventListener('click', changeQuoteRu);
+
+  input.placeholder = '[Введите имя]';
 });
 
 english.addEventListener('click', () => {
   english.classList.add('active');
   russian.classList.remove('active');
+  inputCity.removeEventListener('change', changeInputCityRu);
+  inputCity.addEventListener('change', changeInputCityEn);
+
+  window.removeEventListener('load', getLocalStorage('ru', weatherLocale[1]));
+  window.addEventListener('load', getLocalStorage('en', weatherLocale[0]));
+
+  inputCity.value = 'Minsk';
+  url = weatherLocale[0].url;
+  getWeather(weatherLocale[0]);
+
+  getQuotes('quotes.json');
+  changeQuoteBtn.removeEventListener('click', changeQuoteRu);
+  changeQuoteBtn.addEventListener('click', changeQuoteEn);
+
+  input.placeholder = '[Enter name]';
 });
