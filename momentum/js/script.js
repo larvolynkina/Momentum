@@ -12,8 +12,9 @@ const dataOptions = {
 };
 let currentDate = date.toLocaleDateString('en-US', dataOptions);
 
+let lang = 'en-US';
 const updateDate = () => {
-  currentDate = date.toLocaleDateString('en-US', dataOptions);
+  currentDate = date.toLocaleDateString(lang, dataOptions);
   dataElement.textContent = currentDate;
 };
 
@@ -446,6 +447,8 @@ russian.addEventListener('click', () => {
   changeQuoteBtn.addEventListener('click', changeQuoteRu);
 
   input.placeholder = '[Введите имя]';
+
+  lang = 'ru-RU';
 });
 
 english.addEventListener('click', () => {
@@ -466,4 +469,6 @@ english.addEventListener('click', () => {
   changeQuoteBtn.addEventListener('click', changeQuoteEn);
 
   input.placeholder = '[Enter name]';
+
+  lang = 'en-US';
 });
