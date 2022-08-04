@@ -385,6 +385,49 @@ body {
   background-image: url(../assets/svg/ru.svg)
 }
 
+.footer-links {
+  display: flex;
+  width: 100%;
+  padding: 0 15px;
+  padding-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.github {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  background-image: url('../assets/svg/github-logo.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.github-link {
+  display: block;
+  width: 30px;
+  height: 30px;
+
+}
+
+.rs-logo {
+  width: 94px;
+  height: 42px;
+  background-color: #fff;
+  border-radius: 10px;
+  background-image: url('../assets/svg/rs_school_js.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.rs-link {
+  display: block;
+  width: 84px;
+  height: 32px;
+}
+
 @media (max-width: 768px) {
   .time {
     min-height: 80px;
